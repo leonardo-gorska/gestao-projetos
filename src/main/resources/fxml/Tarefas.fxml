@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.gestaoprojetos.controller.TarefasController"
+            prefWidth="650" prefHeight="450">
+
+    <Label text="Cadastro de Tarefas" layoutX="20" layoutY="20"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <!-- Título -->
+    <Label text="Título:" layoutX="20" layoutY="60"/>
+    <TextField fx:id="txtTitulo" layoutX="120" layoutY="55" prefWidth="200"/>
+
+    <!-- Descrição -->
+    <Label text="Descrição:" layoutX="20" layoutY="95"/>
+    <TextArea fx:id="txtDescricao" layoutX="120" layoutY="90" prefWidth="200" prefHeight="60"/>
+
+    <!-- Projeto -->
+    <Label text="Projeto:" layoutX="350" layoutY="60"/>
+    <ComboBox fx:id="cbProjeto" layoutX="420" layoutY="55" prefWidth="200"/>
+
+    <!-- Responsável -->
+    <Label text="Responsável:" layoutX="350" layoutY="95"/>
+    <ComboBox fx:id="cbResponsavel" layoutX="420" layoutY="90" prefWidth="200"/>
+
+    <!-- Datas -->
+    <Label text="Data Início:" layoutX="20" layoutY="165"/>
+    <DatePicker fx:id="dpInicio" layoutX="120" layoutY="160"/>
+
+    <Label text="Data Término:" layoutX="20" layoutY="200"/>
+    <DatePicker fx:id="dpTermino" layoutX="120" layoutY="195"/>
+
+    <!-- Botão salvar -->
+    <Button text="Salvar" layoutX="420" layoutY="130" prefWidth="200" onAction="#salvarTarefa"/>
+
+    <!-- TableView de tarefas -->
+    <TableView fx:id="tableTarefas" layoutX="20" layoutY="240" prefWidth="600" prefHeight="180">
+        <columns>
+            <TableColumn fx:id="colTitulo" text="Título" prefWidth="150"/>
+            <TableColumn fx:id="colProjeto" text="Projeto" prefWidth="120"/>
+            <TableColumn fx:id="colResponsavel" text="Responsável" prefWidth="120"/>
+            <TableColumn fx:id="colDataInicio" text="Data Início" prefWidth="100"/>
+            <TableColumn fx:id="colDataTermino" text="Data Término" prefWidth="120"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

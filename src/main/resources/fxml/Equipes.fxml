@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.EquipesController"
+            prefWidth="700" prefHeight="400">
+
+    <Label text="Cadastro de Equipes" layoutX="20" layoutY="20" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <Label text="Nome:" layoutX="20" layoutY="60"/>
+    <TextField fx:id="txtNome" layoutX="120" layoutY="55" prefWidth="200"/>
+
+    <Label text="Descrição:" layoutX="20" layoutY="95"/>
+    <TextArea fx:id="txtDescricao" layoutX="120" layoutY="90" prefWidth="200" prefHeight="60"/>
+
+    <Label text="Perfil:" layoutX="350" layoutY="60"/>
+    <ComboBox fx:id="comboPerfil" layoutX="420" layoutY="55" prefWidth="150"/>
+
+    <Label text="Membros:" layoutX="350" layoutY="100"/>
+    <ListView fx:id="lvUsuarios" layoutX="420" layoutY="95" prefWidth="250" prefHeight="150"/>
+
+    <Button text="Salvar" layoutX="420" layoutY="260" prefWidth="250" onAction="#salvarEquipe"/>
+
+    <TableView fx:id="tableEquipes" layoutX="20" layoutY="220" prefWidth="380" prefHeight="150">
+        <columns>
+            <TableColumn fx:id="colNome" text="Nome" prefWidth="120"/>
+            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="180"/>
+            <TableColumn fx:id="colPerfil" text="Perfil" prefWidth="80"/>
+        </columns>
+    </TableView>
+
+</AnchorPane>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.DashboardController"
+            prefWidth="600" prefHeight="400">
+
+    <Label fx:id="lblUsuario" layoutX="20" layoutY="20" text="Bem-vindo, Usuário"/>
+
+    <Button fx:id="btnUsuarios" layoutX="50" layoutY="70" text="Usuários" onAction="#abrirUsuarios"/>
+    <Button fx:id="btnProjetos" layoutX="50" layoutY="120" text="Projetos" onAction="#abrirProjetos"/>
+    <Button fx:id="btnEquipes" layoutX="50" layoutY="170" text="Equipes" onAction="#abrirEquipes"/>
+    <Button fx:id="btnTarefas" layoutX="50" layoutY="220" text="Tarefas" onAction="#abrirTarefas"/>
+    <Button fx:id="btnRelatorios" layoutX="50" layoutY="270" text="Relatórios" onAction="#abrirRelatorios"/>
+</AnchorPane>

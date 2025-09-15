@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.RelatoriosController"
+            prefWidth="600" prefHeight="400">
+
+    <Label text="Relatórios de Projetos" layoutX="20" layoutY="20" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableProjetos" layoutX="20" layoutY="60" prefWidth="550" prefHeight="300">
+        <columns>
+            <TableColumn fx:id="colNome" text="Projeto" prefWidth="200"/>
+            <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+            <TableColumn fx:id="colRisco" text="Risco" prefWidth="200"/>
+        </columns>
+    </TableView>
+</AnchorPane>

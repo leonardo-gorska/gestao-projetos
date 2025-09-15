@@ -1,0 +1,141 @@
+Listagem de caminhos de pasta
+O número de série do volume é 3CF8-1FAB
+C:.
+|   .gitignore
+|   estrutura.txt
+|   gestao-projetos.iml
+|   pom.xml
+|   README.txt
+|   
++---.idea
+|   |   .gitignore
+|   |   compiler.xml
+|   |   encodings.xml
+|   |   jarRepositories.xml
+|   |   misc.xml
+|   |   modules.xml
+|   |   workspace.xml
+|   |   
+|   \---libraries
+|           lib.xml
+|           mysql_connector_j_8_1_0.xml
+|           
++---.mvn
++---src
+|   +---br
+|   |   \---com
+|   |       \---gestaoprojetos
+|   |           |   Main.java
+|   |           |   
+|   |           +---controller
+|   |           |       DashboardController.java
+|   |           |       EquipesController.java
+|   |           |       LoginController.java
+|   |           |       ProjetosController.java
+|   |           |       RelatoriosController.java
+|   |           |       TarefasController.java
+|   |           |       UsuariosController.java
+|   |           |       
+|   |           +---dao
+|   |           |       CargoDAO.java
+|   |           |       EquipeDAO.java
+|   |           |       LogAtividadeDAO.java
+|   |           |       ProjetoDAO.java
+|   |           |       TarefaDAO.java
+|   |           |       UsuarioDAO.java
+|   |           |       
+|   |           +---model
+|   |           |       Cargo.java
+|   |           |       Equipe.java
+|   |           |       LogAtividade.java
+|   |           |       Projeto.java
+|   |           |       Tarefa.java
+|   |           |       Usuario.java
+|   |           |       
+|   |           +---service
+|   |           +---util
+|   |           |       DBConnection.java
+|   |           |       
+|   |           \---view
+|   +---lib
+|   +---main
+|   |   +---java
+|   |   |   \---org
+|   |   |       \---example
+|   |   |               Main.java
+|   |   |               
+|   |   \---resources
+|   |       \---fxml
+|   |               Dashboard.fxml
+|   |               Equipes.fxml
+|   |               Login.fxml
+|   |               Projetos.fxml
+|   |               Relatorios.fxml
+|   |               Tarefas.fxml
+|   |               Usuarios.fxml
+|   |               
+|   \---test
+|       \---java
+\---target
+    +---classes
+    |   +---br
+    |   |   \---com
+    |   |       \---gestaoprojetos
+    |   |           |   Main.class
+    |   |           |   
+    |   |           +---controller
+    |   |           |       DashboardController.class
+    |   |           |       EquipesController.class
+    |   |           |       LoginController.class
+    |   |           |       ProjetosController.class
+    |   |           |       RelatoriosController.class
+    |   |           |       TarefasController$1.class
+    |   |           |       TarefasController$2.class
+    |   |           |       TarefasController.class
+    |   |           |       UsuariosController.class
+    |   |           |       
+    |   |           +---dao
+    |   |           |       CargoDAO.class
+    |   |           |       EquipeDAO.class
+    |   |           |       LogAtividadeDAO.class
+    |   |           |       ProjetoDAO.class
+    |   |           |       TarefaDAO.class
+    |   |           |       UsuarioDAO.class
+    |   |           |       
+    |   |           +---model
+    |   |           |       Cargo.class
+    |   |           |       Equipe.class
+    |   |           |       LogAtividade.class
+    |   |           |       Projeto.class
+    |   |           |       Tarefa.class
+    |   |           |       Usuario.class
+    |   |           |       
+    |   |           \---util
+    |   |                   DBConnection.class
+    |   |                   
+    |   +---fxml
+    |   |       Dashboard.fxml
+    |   |       Equipes.fxml
+    |   |       Login.fxml
+    |   |       Projetos.fxml
+    |   |       Relatorios.fxml
+    |   |       Tarefas.fxml
+    |   |       Usuarios.fxml
+    |   |       
+    |   +---main
+    |   |   \---resources
+    |   |       \---fxml
+    |   |               Dashboard.fxml
+    |   |               Equipes.fxml
+    |   |               Login.fxml
+    |   |               Projetos.fxml
+    |   |               Relatorios.fxml
+    |   |               Tarefas.fxml
+    |   |               Usuarios.fxml
+    |   |               
+    |   \---org
+    |       \---example
+    |               Main.class
+    |               
+    \---generated-sources
+        \---annotations

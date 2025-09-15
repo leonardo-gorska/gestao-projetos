@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.UsuariosController"
+            prefWidth="600" prefHeight="400">
+
+    <Label text="Cadastro de Usuários" layoutX="20" layoutY="20" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <Label text="Nome:" layoutX="20" layoutY="60"/>
+    <TextField fx:id="txtNome" layoutX="120" layoutY="55" prefWidth="200"/>
+
+    <Label text="CPF:" layoutX="20" layoutY="95"/>
+    <TextField fx:id="txtCpf" layoutX="120" layoutY="90" prefWidth="200"/>
+
+    <Label text="E-mail:" layoutX="20" layoutY="130"/>
+    <TextField fx:id="txtEmail" layoutX="120" layoutY="125" prefWidth="200"/>
+
+    <Label text="Login:" layoutX="20" layoutY="165"/>
+    <TextField fx:id="txtLogin" layoutX="120" layoutY="160" prefWidth="200"/>
+
+    <Label text="Senha:" layoutX="20" layoutY="200"/>
+    <TextField fx:id="txtSenha" layoutX="120" layoutY="195" prefWidth="200"/>
+
+    <Label text="Cargo:" layoutX="350" layoutY="60"/>
+    <ComboBox fx:id="comboCargo" layoutX="420" layoutY="55" prefWidth="150"/>
+
+    <Label text="Perfil:" layoutX="350" layoutY="95"/>
+    <ComboBox fx:id="comboPerfil" layoutX="420" layoutY="90" prefWidth="150"/>
+
+    <Button text="Salvar" layoutX="420" layoutY="130" prefWidth="150" onAction="#salvarUsuario"/>
+
+    <TableView fx:id="tabelaUsuarios" layoutX="20" layoutY="240" prefWidth="550" prefHeight="140">
+        <columns>
+            <TableColumn fx:id="colNome" text="Nome" prefWidth="180"/>
+            <TableColumn fx:id="colEmail" text="E-mail" prefWidth="180"/>
+            <TableColumn fx:id="colPerfil" text="Perfil" prefWidth="180"/>
+        </columns>
+    </TableView>
+</AnchorPane>
