@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:controller="br.com.gestaoprojetos.controller.PerfilController"
+      spacing="15" alignment="center"
+      xmlns:fx="http://javafx.com/fxml"
+      styleClass="dashboard-root"
+      prefWidth="1000" prefHeight="650">
+
+    <padding>
+        <Insets top="20" right="0" bottom="20" left="0"/>
+    </padding>
+
+    <!-- Título -->
+    <Label text="Cadastro de Perfis" styleClass="dashboard-title"/>
+
+    <!-- Card principal -->
+    <StackPane styleClass="user-card" maxWidth="950" VBox.vgrow="ALWAYS">
+        <VBox spacing="15" alignment="center">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+
+            <!-- Grid de campos -->
+            <GridPane hgap="20" vgap="10" alignment="center">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120" prefWidth="180"/>
+                    <ColumnConstraints minWidth="200" prefWidth="280"/>
+                </columnConstraints>
+
+                <!-- Linha 0 -->
+                <Label text="Descrição:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtDescricao" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="280"/>
+            </GridPane>
+
+            <!-- Botões -->
+            <HBox spacing="15" alignment="center">
+                <Button text="Salvar" onAction="#salvarPerfil" styleClass="button" prefWidth="120"/>
+                <Button text="Atualizar" onAction="#atualizarPerfil" styleClass="button" prefWidth="120"/>
+                <Button text="Excluir" onAction="#excluirPerfil" styleClass="button" prefWidth="120"/>
+                <Button text="Limpar" onAction="#limparCampos" styleClass="button" prefWidth="120"/>
+            </HBox>
+
+            <!-- Tabela de Perfis -->
+            <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="300" prefWidth="900"
+                        style="-fx-background-color:transparent; -fx-padding:0;">
+                <content>
+                    <TableView fx:id="tablePerfis" styleClass="table-view" prefHeight="280" prefWidth="900">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="300"/>
+                        </columns>
+                    </TableView>
+                </content>
+            </ScrollPane>
+
+            <!-- Espaço inferior -->
+            <Region prefHeight="20"/>
+        </VBox>
+    </StackPane>
+</VBox>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.gestaoprojetos.controller.CargosController"
+            prefWidth="500" prefHeight="400">
+
+    <Label text="Gestão de Cargos" layoutX="20" layoutY="20"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <!-- Campo para nome do cargo -->
+    <Label text="Nome:" layoutX="20" layoutY="60"/>
+    <TextField fx:id="txtNome" layoutX="100" layoutY="55" prefWidth="200"/>
+
+    <!-- Botões -->
+    <HBox spacing="10" layoutX="320" layoutY="50">
+        <Button text="Novo" onAction="#limparCampos"/>
+        <Button text="Salvar" onAction="#salvarCargo"/>
+        <Button text="Atualizar" onAction="#atualizarCargo"/>
+        <Button text="Excluir" onAction="#excluirCargo"/>
+    </HBox>
+
+    <!-- Tabela de cargos -->
+    <TableView fx:id="tableCargos" layoutX="20" layoutY="100" prefWidth="460" prefHeight="250">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colNome" text="Nome" prefWidth="400"/>
+        </columns>
+    </TableView>
+</AnchorPane>

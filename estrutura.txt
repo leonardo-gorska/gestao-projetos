@@ -2,11 +2,306 @@ Listagem de caminhos de pasta
 O número de série do volume é 3CF8-1FAB
 C:.
 |   .gitignore
+|   database.sql
 |   estrutura.txt
 |   gestao-projetos.iml
 |   pom.xml
 |   README.txt
 |   
++---.git
+|   |   COMMIT_EDITMSG
+|   |   config
+|   |   description
+|   |   HEAD
+|   |   index
+|   |   
+|   +---hooks
+|   |       applypatch-msg.sample
+|   |       commit-msg.sample
+|   |       fsmonitor-watchman.sample
+|   |       post-update.sample
+|   |       pre-applypatch.sample
+|   |       pre-commit.sample
+|   |       pre-merge-commit.sample
+|   |       pre-push.sample
+|   |       pre-rebase.sample
+|   |       pre-receive.sample
+|   |       prepare-commit-msg.sample
+|   |       push-to-checkout.sample
+|   |       sendemail-validate.sample
+|   |       update.sample
+|   |       
+|   +---info
+|   |       exclude
+|   |       
+|   +---logs
+|   |   |   HEAD
+|   |   |   
+|   |   \---refs
+|   |       +---heads
+|   |       |       main
+|   |       |       
+|   |       \---remotes
+|   |           \---origin
+|   |                   main
+|   |                   
+|   +---objects
+|   |   +---00
+|   |   |       21cc9720490dc37e801bdd437da24f69a72454
+|   |   |       451ff886680f5e162942b1fc88404c4227ba56
+|   |   |       
+|   |   +---02
+|   |   |       50afb9d5b6d24389bb68b9b14b4e7fd53ac181
+|   |   |       
+|   |   +---06
+|   |   |       f6097b35cb39b4149cb5ec3c25d64f4af90891
+|   |   |       
+|   |   +---0f
+|   |   |       d9ab4546ac40ce85d74b26b04ab271443a3bb5
+|   |   |       
+|   |   +---13
+|   |   |       566b81b018ad684f3a35fee301741b2734c8f4
+|   |   |       73d60dd928241e9fb5dc2fff3745bb77fbb3e6
+|   |   |       
+|   |   +---15
+|   |   |       5652ac456b11be60c15bd7eba73d6c43f94684
+|   |   |       
+|   |   +---17
+|   |   |       1aab7f6c675a1db6416f0f4daf806e302a3f90
+|   |   |       
+|   |   +---18
+|   |   |       7975027dc45b767914ab7547f3fbc4a2772f6f
+|   |   |       
+|   |   +---1e
+|   |   |       ae6e8327ca34e91646a50d5b387746295b8e67
+|   |   |       
+|   |   +---1f
+|   |   |       f76e81ccb4ba40f98059c0084fb0a57299a3fa
+|   |   |       
+|   |   +---22
+|   |   |       6939022337b2053d4df57b5f885b176c90b671
+|   |   |       
+|   |   +---25
+|   |   |       4eecafd4de3a9be7872e3d21b0adb6db24bd2c
+|   |   |       58709f90f103bb882349823db8124c4950c1f6
+|   |   |       
+|   |   +---27
+|   |   |       e325fce4cefe2ee857ca9e28b8fd8bc422dbd4
+|   |   |       
+|   |   +---31
+|   |   |       fbc18d35ca4e55fcb5379a79f60d7f0da50fd0
+|   |   |       
+|   |   +---33
+|   |   |       7890b1c8da1f82c0cba3a6fdf2816544925e0f
+|   |   |       
+|   |   +---37
+|   |   |       7ae96afc6a5c62d2c984ed230f15e8cfd2ac98
+|   |   |       
+|   |   +---38
+|   |   |       639b583fb5ce6f0e9c7c4c9a65b5f1bd922e66
+|   |   |       
+|   |   +---39
+|   |   |       001f9b6e2af1a613a8dd74449a482eafdb9114
+|   |   |       
+|   |   +---3a
+|   |   |       0a67c626669ab9a34244102c539cd182a40af6
+|   |   |       
+|   |   +---44
+|   |   |       052653cd10ddacaf403689297de00b6f6ac591
+|   |   |       bbda6038b47881652e9062040f76d02e788741
+|   |   |       
+|   |   +---45
+|   |   |       da35c7109d770d5ef7579780e2f228c1205927
+|   |   |       
+|   |   +---47
+|   |   |       31638fde540f553fbd88c3ca8be013d2ed05c4
+|   |   |       
+|   |   +---48
+|   |   |       694c547fe0a82a953d64db488c7fa5d0372a89
+|   |   |       
+|   |   +---4b
+|   |   |       0c567b07c92380f413ae5e649ff4d208940a81
+|   |   |       
+|   |   +---4e
+|   |   |       f64990cf6a7098b986c986315408f2975ebf38
+|   |   |       
+|   |   +---5e
+|   |   |       170f557e8d4a7fee6a90cb1c1e5ab2545af75c
+|   |   |       
+|   |   +---5f
+|   |   |       f6309b7199129c1afe4f4ec1906e640bec48c6
+|   |   |       
+|   |   +---61
+|   |   |       61ad3e9ab6b731220f51bdd54a2c3beb4c3580
+|   |   |       
+|   |   +---65
+|   |   |       88ac0f49c7f9c1dc71cae500b6e28872f0fc48
+|   |   |       
+|   |   +---67
+|   |   |       2a35b16d10f03164ba77d1f8a7ead7aa115e7b
+|   |   |       
+|   |   +---6c
+|   |   |       ed3452e6cad19e253fb7410d4df982381ae6df
+|   |   |       
+|   |   +---6e
+|   |   |       47f8347df67050977de95eb956ba4192454b05
+|   |   |       7b98e02b239caaeb59757da7bb3cc5c0ac8c65
+|   |   |       
+|   |   +---77
+|   |   |       8da077b343d9c9c428c8292089c4d653f71597
+|   |   |       
+|   |   +---78
+|   |   |       090afee4855206f98dcb83df1c4108f3a68a58
+|   |   |       
+|   |   +---79
+|   |   |       3681550040fe124f326dcc27389370bf0f9e49
+|   |   |       
+|   |   +---7d
+|   |   |       04286e5553e5465309d9a1566a7dc2d0982ae6
+|   |   |       
+|   |   +---83
+|   |   |       c953096a91fd89ba1038bdc0388fcd9f644a3f
+|   |   |       
+|   |   +---85
+|   |   |       091b0cb8f030997ec799544e124dff1062750e
+|   |   |       
+|   |   +---88
+|   |   |       c15160d35795c1efa44b3d96f663cfb91c289a
+|   |   |       
+|   |   +---8d
+|   |   |       48e538f03c45b7f0cf9a02e7c768f43b6301c4
+|   |   |       
+|   |   +---90
+|   |   |       d72a64f36136913874154cce81912017c342b0
+|   |   |       
+|   |   +---91
+|   |   |       5fa5a7fe736b1dd3510bec371e23bfd70501df
+|   |   |       
+|   |   +---93
+|   |   |       50c71e31c46af2750b9d1ed3b692d52fdd5c94
+|   |   |       
+|   |   +---94
+|   |   |       25da3a519f137ec478174fb2a4a320c216269f
+|   |   |       a25f7f4cb416c083d265558da75d457237d671
+|   |   |       
+|   |   +---99
+|   |   |       8587ce234df2571c466c60b9ecf3336690254b
+|   |   |       
+|   |   +---9f
+|   |   |       acfcbc74e3ef7dd00e14a1c98e338f5bdd5440
+|   |   |       
+|   |   +---a0
+|   |   |       2700ff988563f304a0b1dfd5c72adef6cab460
+|   |   |       
+|   |   +---a4
+|   |   |       3751254c5366037e81319b0cbcec2b526f15ed
+|   |   |       90a59f8a7431fa1799f42bd0031b8786bb696d
+|   |   |       
+|   |   +---aa
+|   |   |       00ffab7828f4818589659c804ec2cfd99baed3
+|   |   |       
+|   |   +---ab
+|   |   |       283dd93c8844a4edf46cd7e2755bdd56e43ed1
+|   |   |       
+|   |   +---ac
+|   |   |       86478c9950688035d12a7a73853f4dac773eae
+|   |   |       
+|   |   +---b2
+|   |   |       49545ffd609c07ca450e4510636d725e8cc8ef
+|   |   |       
+|   |   +---b6
+|   |   |       2bcccb16c8a36c60f10ccfe5a68489223e2761
+|   |   |       
+|   |   +---b9
+|   |   |       5a0b925cea07546c159cc501da35e4959109f9
+|   |   |       f0fd48b96dc77b5129e12e87e87d7f153776d0
+|   |   |       
+|   |   +---bb
+|   |   |       48b843f4d90fba3bacd880ffb922404592715b
+|   |   |       
+|   |   +---bf
+|   |   |       49b346d87b449660b2b8c9343f188c43f7c7fa
+|   |   |       
+|   |   +---c5
+|   |   |       830fdedc8682cc335d7aac86eb0ed2b130664c
+|   |   |       
+|   |   +---c7
+|   |   |       ced763d1f47dbfe6a2a060e392066748f879b6
+|   |   |       
+|   |   +---cc
+|   |   |       4000d62c0a4d21a03650dca244dcecc4ab92e9
+|   |   |       
+|   |   +---cd
+|   |   |       858fee01bdd14b3d3318705afd24aa6257de51
+|   |   |       
+|   |   +---d3
+|   |   |       503566965ba6b6d076dd3d6b033a647ea285b3
+|   |   |       
+|   |   +---d4
+|   |   |       9bc0d1eccf5b5109a52d1c28e3f007ab128d61
+|   |   |       
+|   |   +---d5
+|   |   |       428ca03b662ec59b70af1fb8e24aa3631ba650
+|   |   |       
+|   |   +---d6
+|   |   |       24c6119ca78e9186ae27f92e07e04bd769e300
+|   |   |       
+|   |   +---d7
+|   |   |       7f7d067f4c582e21802c6db87c8b80e59fa31e
+|   |   |       
+|   |   +---d9
+|   |   |       6d2eab9b54b5c93ec90a6b7f1abe0b5ce03736
+|   |   |       
+|   |   +---db
+|   |   |       7028bb1b9cd3745bffb55327d034fa825176be
+|   |   |       
+|   |   +---dc
+|   |   |       006a81eeb5cdd9df732adf3ee822191ae3f1e0
+|   |   |       
+|   |   +---dd
+|   |   |       fc38fde4f476e8a0448439726367f9be2f6132
+|   |   |       
+|   |   +---df
+|   |   |       572825540670723fc224f59907d3c9fd91413e
+|   |   |       
+|   |   +---e0
+|   |   |       1151cdbbaf3e7445ff0da3fa4a85ca6222378d
+|   |   |       
+|   |   +---e1
+|   |   |       1b47966fee1a7aa6167653bab8de888c793b78
+|   |   |       7767110382e545cb28563372623f3d93171d39
+|   |   |       be62450e246cd272aa7e46c7489755b0b9ea66
+|   |   |       
+|   |   +---e6
+|   |   |       9de29bb2d1d6434b8b29ae775ad8c2e48c5391
+|   |   |       
+|   |   +---ed
+|   |   |       0cdcadf0aa0cce6a4a412262f2b6aff8f6351b
+|   |   |       64ebb0fce6055607106e8bc0ec2e5a07f1c8e9
+|   |   |       b399f8e3d8bf98e2c501aba5c27980c2fa68c4
+|   |   |       
+|   |   +---f2
+|   |   |       37e08b401568ccb336e87033a263033cf62a58
+|   |   |       
+|   |   +---f5
+|   |   |       7c3a8db6ebed4aaf5445899be9fdd57301823b
+|   |   |       
+|   |   +---fe
+|   |   |       2e055776597ab4e9fcf0087ab5c7fedcf3ecaf
+|   |   |       99f6407b1110e0061d3926757677b5b798eb63
+|   |   |       aac68ce372f4cbfdcb546e859b11846df1f5b3
+|   |   |       
+|   |   +---info
+|   |   \---pack
+|   \---refs
+|       +---heads
+|       |       main
+|       |       
+|       +---remotes
+|       |   \---origin
+|       |           main
+|       |           
+|       \---tags
 +---.idea
 |   |   .gitignore
 |   |   compiler.xml
@@ -14,32 +309,45 @@ C:.
 |   |   jarRepositories.xml
 |   |   misc.xml
 |   |   modules.xml
+|   |   vcs.xml
 |   |   workspace.xml
 |   |   
+|   +---artifacts
+|   |       gestao_projetos_jar.xml
+|   |       
 |   \---libraries
-|           lib.xml
-|           mysql_connector_j_8_1_0.xml
+|           javafx_base.xml
 |           
 +---.mvn
 +---src
 |   +---br
 |   |   \---com
 |   |       \---gestaoprojetos
-|   |           |   Main.java
+|   |           |   MainApp.java
 |   |           |   
 |   |           +---controller
+|   |           |       CargosController.java
 |   |           |       DashboardController.java
+|   |           |       EquipeProjetoController.java
 |   |           |       EquipesController.java
+|   |           |       HistoricoProjetoController.java
+|   |           |       HistoricoTarefaController.java
 |   |           |       LoginController.java
+|   |           |       PerfilController.java
 |   |           |       ProjetosController.java
 |   |           |       RelatoriosController.java
 |   |           |       TarefasController.java
+|   |           |       UsuarioEditarController.java
+|   |           |       UsuarioRecebeController.java
 |   |           |       UsuariosController.java
 |   |           |       
 |   |           +---dao
 |   |           |       CargoDAO.java
 |   |           |       EquipeDAO.java
+|   |           |       GenericDAO.java
+|   |           |       HistoricoTarefaDAO.java
 |   |           |       LogAtividadeDAO.java
+|   |           |       PerfilDAO.java
 |   |           |       ProjetoDAO.java
 |   |           |       TarefaDAO.java
 |   |           |       UsuarioDAO.java
@@ -47,32 +355,56 @@ C:.
 |   |           +---model
 |   |           |       Cargo.java
 |   |           |       Equipe.java
+|   |           |       HistoricoProjeto.java
+|   |           |       HistoricoTarefa.java
 |   |           |       LogAtividade.java
+|   |           |       Perfil.java
 |   |           |       Projeto.java
 |   |           |       Tarefa.java
 |   |           |       Usuario.java
 |   |           |       
 |   |           +---service
+|   |           |       CargoService.java
+|   |           |       EquipeService.java
+|   |           |       HistoricoProjetoService.java
+|   |           |       HistoricoTarefaService.java
+|   |           |       LogAtividadeService.java
+|   |           |       LoginService.java
+|   |           |       PerfilService.java
+|   |           |       ProjetoService.java
+|   |           |       RelatorioService.java
+|   |           |       TarefaService.java
+|   |           |       UsuarioService.java
+|   |           |       
 |   |           +---util
 |   |           |       DBConnection.java
+|   |           |       Validador.java
 |   |           |       
 |   |           \---view
 |   +---lib
 |   +---main
 |   |   +---java
-|   |   |   \---org
-|   |   |       \---example
-|   |   |               Main.java
-|   |   |               
 |   |   \---resources
-|   |       \---fxml
-|   |               Dashboard.fxml
-|   |               Equipes.fxml
-|   |               Login.fxml
-|   |               Projetos.fxml
-|   |               Relatorios.fxml
-|   |               Tarefas.fxml
-|   |               Usuarios.fxml
+|   |       +---css
+|   |       |       style.css
+|   |       |       
+|   |       +---fxml
+|   |       |       Cargos.fxml
+|   |       |       Dashboard.fxml
+|   |       |       EquipeProjeto.fxml
+|   |       |       Equipes.fxml
+|   |       |       HistoricoProjetoController.fxml
+|   |       |       HistoricoTarefa.fxml
+|   |       |       Login.fxml
+|   |       |       Perfil.fxml
+|   |       |       Projetos.fxml
+|   |       |       Relatorios.fxml
+|   |       |       Tarefas.fxml
+|   |       |       UsuarioEditar.fxml
+|   |       |       Usuarios.fxml
+|   |       |       
+|   |       \---META-INF
+|   |               MANIFEST.MF
 |   |               
 |   \---test
 |       \---java
@@ -81,23 +413,35 @@ C:.
     |   +---br
     |   |   \---com
     |   |       \---gestaoprojetos
-    |   |           |   Main.class
+    |   |           |   MainApp.class
     |   |           |   
     |   |           +---controller
+    |   |           |       CargosController.class
     |   |           |       DashboardController.class
+    |   |           |       EquipeProjetoController.class
+    |   |           |       EquipesController$1.class
     |   |           |       EquipesController.class
+    |   |           |       HistoricoProjetoController.class
+    |   |           |       HistoricoTarefaController.class
     |   |           |       LoginController.class
+    |   |           |       PerfilController.class
+    |   |           |       ProjetosController$1.class
     |   |           |       ProjetosController.class
+    |   |           |       RelatoriosController$1.class
     |   |           |       RelatoriosController.class
     |   |           |       TarefasController$1.class
-    |   |           |       TarefasController$2.class
     |   |           |       TarefasController.class
+    |   |           |       UsuarioEditarController.class
+    |   |           |       UsuarioRecebeController.class
     |   |           |       UsuariosController.class
     |   |           |       
     |   |           +---dao
     |   |           |       CargoDAO.class
     |   |           |       EquipeDAO.class
+    |   |           |       GenericDAO.class
+    |   |           |       HistoricoTarefaDAO.class
     |   |           |       LogAtividadeDAO.class
+    |   |           |       PerfilDAO.class
     |   |           |       ProjetoDAO.class
     |   |           |       TarefaDAO.class
     |   |           |       UsuarioDAO.class
@@ -105,37 +449,74 @@ C:.
     |   |           +---model
     |   |           |       Cargo.class
     |   |           |       Equipe.class
+    |   |           |       HistoricoProjeto.class
+    |   |           |       HistoricoTarefa.class
     |   |           |       LogAtividade.class
+    |   |           |       Perfil.class
     |   |           |       Projeto.class
     |   |           |       Tarefa.class
     |   |           |       Usuario.class
     |   |           |       
+    |   |           +---service
+    |   |           |       CargoService.class
+    |   |           |       EquipeService.class
+    |   |           |       HistoricoProjetoService.class
+    |   |           |       HistoricoTarefaService.class
+    |   |           |       LogAtividadeService.class
+    |   |           |       LoginService.class
+    |   |           |       PerfilService.class
+    |   |           |       ProjetoService.class
+    |   |           |       RelatorioService.class
+    |   |           |       TarefaService.class
+    |   |           |       UsuarioService.class
+    |   |           |       
     |   |           \---util
     |   |                   DBConnection.class
+    |   |                   Validador.class
     |   |                   
+    |   +---css
+    |   |       style.css
+    |   |       
     |   +---fxml
+    |   |       Cargos.fxml
     |   |       Dashboard.fxml
+    |   |       EquipeProjeto.fxml
     |   |       Equipes.fxml
+    |   |       HistoricoProjetoController.fxml
+    |   |       HistoricoTarefa.fxml
     |   |       Login.fxml
+    |   |       Perfil.fxml
     |   |       Projetos.fxml
     |   |       Relatorios.fxml
     |   |       Tarefas.fxml
+    |   |       UsuarioEditar.fxml
     |   |       Usuarios.fxml
     |   |       
     |   +---main
     |   |   \---resources
-    |   |       \---fxml
-    |   |               Dashboard.fxml
-    |   |               Equipes.fxml
-    |   |               Login.fxml
-    |   |               Projetos.fxml
-    |   |               Relatorios.fxml
-    |   |               Tarefas.fxml
-    |   |               Usuarios.fxml
+    |   |       +---css
+    |   |       |       style.css
+    |   |       |       
+    |   |       +---fxml
+    |   |       |       Cargos.fxml
+    |   |       |       Dashboard.fxml
+    |   |       |       EquipeProjeto.fxml
+    |   |       |       Equipes.fxml
+    |   |       |       HistoricoProjetoController.fxml
+    |   |       |       HistoricoTarefa.fxml
+    |   |       |       Login.fxml
+    |   |       |       Perfil.fxml
+    |   |       |       Projetos.fxml
+    |   |       |       Relatorios.fxml
+    |   |       |       Tarefas.fxml
+    |   |       |       UsuarioEditar.fxml
+    |   |       |       Usuarios.fxml
+    |   |       |       
+    |   |       \---META-INF
+    |   |               MANIFEST.MF
     |   |               
-    |   \---org
-    |       \---example
-    |               Main.class
-    |               
+    |   \---META-INF
+    |           MANIFEST.MF
+    |           
     \---generated-sources
         \---annotations

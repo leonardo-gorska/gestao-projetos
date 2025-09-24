@@ -1,19 +1,22 @@
 package br.com.gestaoprojetos.model;
 
-import java.util.ArrayList;
 import java.util.List;
-import br.com.gestaoprojetos.model.Usuario;
 
 public class Equipe {
     private int id;
     private String nome;
     private String descricao;
-    private String perfil;
-    private List<Usuario> membros = new ArrayList<>(); // lista de usuários da equipe
+    private Usuario gerente;
+    private List<Usuario> membros;
+    private boolean concluida; // ⚡ novo campo
 
     public Equipe() {}
 
-    // Getters e Setters
+    public Equipe(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -23,9 +26,23 @@ public class Equipe {
     public String getDescricao() { return descricao; }
     public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public String getPerfil() { return perfil; }
-    public void setPerfil(String perfil) { this.perfil = perfil; }
+    public Usuario getGerente() { return gerente; }
+    public void setGerente(Usuario gerente) { this.gerente = gerente; }
 
     public List<Usuario> getMembros() { return membros; }
     public void setMembros(List<Usuario> membros) { this.membros = membros; }
+
+    // alias para compatibilidade com TarefasController
+    public List<Usuario> getUsuarios() {
+        return membros;
+    }
+
+    // novo getter e setter
+    public boolean isConcluida() { return concluida; }
+    public void setConcluida(boolean concluida) { this.concluida = concluida; }
+
+    @Override
+    public String toString() {
+        return nome != null ? nome : "";
+    }
 }

@@ -1,49 +1,106 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.*?>
 
-<!-- Layout principal VBox -->
-<VBox fx:controller="br.com.gestaoprojetos.controller.ProjetosController"
-      spacing="10" alignment="center" xmlns:fx="http://javafx.com/fxml">
+<VBox alignment="center" prefHeight="680" prefWidth="1240" spacing="15" styleClass="dashboard-root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="br.com.gestaoprojetos.controller.ProjetosController">
 
-    <Label text="Gestão de Projetos" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <padding>
+        <Insets bottom="10" left="0" right="0" top="10" />
+    </padding>
 
-    <GridPane hgap="10" vgap="10">
-        <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+    <Label styleClass="dashboard-title" text="Gestão de Projetos" />
 
-        <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-        <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+    <StackPane maxWidth="1210" styleClass="user-card" VBox.vgrow="ALWAYS">      <!-- ajustado para respeitar margens laterais -->
+        <VBox alignment="center" spacing="15">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="15" />       <!-- mantidas margens laterais e inferior -->
+            </padding>
 
-        <Label text="Descrição:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-        <TextArea fx:id="txtDescricao" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+            <!-- Grid de formulário -->
+            <GridPane alignment="center" hgap="10" vgap="10">
+                <padding>
+                    <Insets bottom="0" left="0" right="0" top="0" />
+                </padding>
 
-        <Label text="Data Início:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-        <DatePicker fx:id="dpInicio" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <!-- Campos de projeto -->
+                <Label styleClass="field-label" text="Nome:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="txtNome" styleClass="text-field" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" />
 
-        <Label text="Data Término:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-        <DatePicker fx:id="dpTermino" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label styleClass="field-label" text="Descrição:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextArea fx:id="txtDescricao" prefRowCount="3" styleClass="custom-hover" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
 
-        <Label text="Status:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-        <ComboBox fx:id="cmbStatus" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
-    </GridPane>
+                <Label styleClass="field-label" text="Data Início:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <DatePicker fx:id="dpInicio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-    <HBox spacing="10" alignment="center">
-        <Button text="Novo" onAction="#limparCampos"/>
-        <Button text="Salvar" onAction="#salvarProjeto"/>
-        <Button text="Listar Todos" onAction="#listarProjetos"/>
-    </HBox>
+                <Label styleClass="field-label" text="Equipe:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <CheckComboBox fx:id="cmbEquipe" prefWidth="520" styleClass="check-combo-box" GridPane.columnIndex="3" GridPane.rowIndex="2" VBox.vgrow="ALWAYS" />
 
-    <TableView fx:id="tableProjetos" prefHeight="200" prefWidth="600">
-        <columns>
-            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
-            <TableColumn fx:id="colNome" text="Nome" prefWidth="150"/>
-            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="200"/>
-            <TableColumn fx:id="colInicio" text="Data Início" prefWidth="100"/>
-            <TableColumn fx:id="colTermino" text="Data Término" prefWidth="100"/>
-            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
-        </columns>
-    </TableView>
+                <Label styleClass="field-label" text="Data Término:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <DatePicker fx:id="dpTermino" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
+                <Label styleClass="field-label" text="Gerente:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <ComboBox fx:id="cmbGerente" prefWidth="520" styleClass="combo-box" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+
+                <Label styleClass="field-label" text="Status:" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                <ComboBox fx:id="cmbStatus" prefWidth="260" styleClass="combo-box" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="4" />
+            <columnConstraints>
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+               <ColumnConstraints />
+            </columnConstraints>
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints> <!-- alinhado com Gerente -->
+            </GridPane>
+
+            <!-- Filtro + Botões alinhados -->
+            <HBox alignment="CENTER_LEFT" prefWidth="1210" spacing="10">
+
+                <!-- HBox do filtro -->
+                <HBox alignment="CENTER_LEFT" spacing="10" HBox.hgrow="ALWAYS">
+                    <Label text="Filtrar por status:" />
+                    <ComboBox fx:id="cmbFiltroStatus" prefWidth="150" />
+                </HBox>
+
+                <!-- HBox dos botões -->
+                <HBox alignment="CENTER_RIGHT" spacing="15">
+                    <Button fx:id="btnNovo" onAction="#limparCampos" prefWidth="120" styleClass="button" text="Novo" />
+                    <Button fx:id="btnSalvar" onAction="#salvarProjeto" prefWidth="120" styleClass="button" text="Salvar" />
+                    <Button fx:id="btnListar" onAction="#listarProjetos" prefWidth="120" styleClass="button" text="Listar Todos" />
+                    <Button fx:id="btnSelecionar" onAction="#selecionarProjeto" prefWidth="150" styleClass="button" text="Selecionar Projeto" />
+                </HBox>
+
+            </HBox>
+
+            <!-- Tabela -->
+            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="400" prefWidth="1210" style="-fx-background-color:transparent; -fx-padding:0;">
+                <content>
+                    <TableView fx:id="tableProjetos" prefHeight="390" prefWidth="1210" styleClass="table-view">
+                        <columns>
+                            <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                            <TableColumn fx:id="colNome" prefWidth="210" text="Nome" />
+                            <TableColumn fx:id="colDescricao" prefWidth="360" text="Descrição" />
+                            <TableColumn fx:id="colInicio" prefWidth="90" text="Data Início" />
+                            <TableColumn fx:id="colTermino" prefWidth="90" text="Data Término" />
+                            <TableColumn fx:id="colStatus" prefWidth="90" text="Status" />
+                            <TableColumn fx:id="colEquipe" prefWidth="180" text="Equipe" />
+                            <TableColumn fx:id="colGerente" prefWidth="180" text="Gerente" />
+                            <TableColumn fx:id="colAndamento" prefWidth="90" text="Andamento" />
+                            <TableColumn fx:id="colAcao" prefWidth="220" text="Ação" />
+                        </columns>
+                    </TableView>
+                </content>
+            </ScrollPane>
+
+            <Region prefHeight="20" />
+        </VBox>
+    </StackPane>
 </VBox>

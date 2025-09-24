@@ -1,0 +1,47 @@
+package br.com.gestaoprojetos.controller;
+
+        import br.com.gestaoprojetos.model.HistoricoProjeto;
+        import br.com.gestaoprojetos.service.HistoricoProjetoService;
+        import javafx.collections.FXCollections;
+        import javafx.fxml.FXML;
+        import javafx.scene.control.TableColumn;
+        import javafx.scene.control.TableView;
+        import javafx.scene.control.cell.PropertyValueFactory;
+
+        public class HistoricoProjetoController {
+
+        @FXML
+        private TableView<HistoricoProjeto> tableHistorico;
+    @FXML
+    private TableColumn<HistoricoProjeto, String> colUsuario;
+    @FXML
+    private TableColumn<HistoricoProjeto, String> colAcao;
+    @FXML
+    private TableColumn<HistoricoProjeto, String> colDetalhe;
+    @FXML
+    private TableColumn<HistoricoProjeto, String> colDataHora;
+
+    private HistoricoProjetoService service = new HistoricoProjetoService();
+
+    @FXML
+    public void initialize() {
+    colUsuario.setCellValueFactory(cell ->
+    new javafx.beans.property.SimpleStringProperty(
+    cell.getValue().getUsuario() != null ? cell.getValue().getUsuario().getNome() : ""
+    )
+    );
+    colAcao.setCellValueFactory(new PropertyValueFactory<>("acao"));
+        colDetalhe.setCellValueFactory(new PropertyValueFactory<>("detalhe"));
+            colDataHora.setCellValueFactory(cell ->
+            new javafx.beans.property.SimpleStringProperty(
+            cell.getValue().getDataHora() != null ? cell.getValue().getDataHora().toString() : ""
+            )
+            );
+
+            listarHistoricos();
+            }
+
+            private void listarHistoricos() {
+            tableHistorico.setItems(FXCollections.observableArrayList(service.listarTodos()));
+            }
+            }

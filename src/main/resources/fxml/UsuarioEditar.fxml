@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.gestaoprojetos.controller.UsuarioEditarController"
+            prefWidth="450" prefHeight="400"
+            styleClass="anchor-pane">
+
+    <children>
+        <!-- Card centralizado -->
+        <VBox alignment="CENTER" AnchorPane.topAnchor="20" AnchorPane.bottomAnchor="20"
+              AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" spacing="20"
+              styleClass="user-card">
+
+            <!-- Título centralizado -->
+            <Label text="Editar Usuário" styleClass="dashboard-title" maxWidth="Infinity" alignment="CENTER"/>
+
+            <!-- Campos de entrada -->
+            <GridPane hgap="10" vgap="10">
+                <columnConstraints>
+                    <ColumnConstraints hgrow="NEVER" minWidth="100"/> <!-- labels -->
+                    <ColumnConstraints hgrow="ALWAYS" fillWidth="true"/> <!-- campos preenchem -->
+                </columnConstraints>
+
+                <Label text="Nome:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtNome" GridPane.rowIndex="0" GridPane.columnIndex="1" styleClass="text-field" maxWidth="Infinity"/>
+
+                <Label text="CPF:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtCpf" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="text-field" maxWidth="Infinity"/>
+
+                <Label text="E-mail:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtEmail" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="text-field" maxWidth="Infinity"/>
+
+                <Label text="Login:" GridPane.rowIndex="3" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtLogin" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="text-field" maxWidth="Infinity"/>
+
+                <Label text="Senha:" GridPane.rowIndex="4" GridPane.columnIndex="0" styleClass="field-label"/>
+                <PasswordField fx:id="txtSenha" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="password-field" maxWidth="Infinity"/>
+
+                <Label text="Cargo:" GridPane.rowIndex="5" GridPane.columnIndex="0" styleClass="field-label"/>
+                <ComboBox fx:id="comboCargo" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                          styleClass="combo-box" maxWidth="Infinity"/>
+
+                <Label text="Perfil:" GridPane.rowIndex="6" GridPane.columnIndex="0" styleClass="field-label"/>
+                <ComboBox fx:id="comboPerfil" GridPane.rowIndex="6" GridPane.columnIndex="1"
+                          styleClass="combo-box" maxWidth="Infinity"/>
+            </GridPane>
+
+            <!-- Botões centralizados -->
+            <HBox spacing="15" alignment="CENTER">
+                <Button text="Salvar" onAction="#salvarUsuario" styleClass="btn-primary"/>
+                <Button text="Excluir" onAction="#excluirUsuario" styleClass="btn-danger"/>
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

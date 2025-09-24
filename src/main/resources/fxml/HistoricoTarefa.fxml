@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.gestaoprojetos.controller.HistoricoTarefaController"
+            prefWidth="700" prefHeight="500">
+
+    <Label text="Histórico de Tarefas" layoutX="20" layoutY="20"
+           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="tableHistorico" layoutX="20" layoutY="60" prefWidth="650" prefHeight="350">
+        <columns>
+            <TableColumn fx:id="colTarefaId" text="Tarefa ID" prefWidth="80"/>
+            <TableColumn fx:id="colUsuario" text="Usuário" prefWidth="150"/>
+            <TableColumn fx:id="colAcao" text="Ação" prefWidth="150"/>
+            <TableColumn fx:id="colDetalhe" text="Detalhe" prefWidth="150"/>
+            <TableColumn fx:id="colDataHora" text="Data/Hora" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" layoutX="20" layoutY="420">
+        <Button text="Novo" onAction="#limparCampos"/>
+        <Button text="Salvar" onAction="#salvarHistorico"/>
+        <Button text="Atualizar" onAction="#atualizarHistorico"/>
+        <Button text="Excluir" onAction="#excluirHistorico"/>
+        <Button text="Listar Todos" onAction="#listarHistorico"/>
+    </HBox>
+
+</AnchorPane>

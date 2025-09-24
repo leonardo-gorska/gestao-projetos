@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.EquipeProjetoController" prefWidth="700" prefHeight="400">
+
+    <children>
+        <!-- Título -->
+        <Label text="Equipes do Projeto" layoutX="20" layoutY="10" style="-fx-font-size: 18px; -fx-font-weight: bold;" />
+
+        <!-- Tabela de Equipes -->
+        <TableView fx:id="tableEquipes" layoutX="20" layoutY="40" prefWidth="660" prefHeight="340">
+            <columns>
+                <TableColumn fx:id="colId" text="ID" prefWidth="50" />
+                <TableColumn fx:id="colNome" text="Nome" prefWidth="120" />
+                <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="150" />
+                <TableColumn fx:id="colGerente" text="Gerente" prefWidth="100" />
+                <TableColumn fx:id="colMembros" text="Membros" prefWidth="150" />
+                <TableColumn fx:id="colAcao" text="Ações" prefWidth="90" />
+            </columns>
+        </TableView>
+    </children>
+</AnchorPane>

@@ -1,51 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="br.com.gestaoprojetos.controller.TarefasController"
-            prefWidth="650" prefHeight="450">
+<VBox fx:controller="br.com.gestaoprojetos.controller.TarefasController"
+      spacing="15" alignment="center" xmlns:fx="http://javafx.com/fxml"
+      styleClass="dashboard-root"
+      prefWidth="1000" prefHeight="650">
 
-    <Label text="Cadastro de Tarefas" layoutX="20" layoutY="20"
-           style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <!-- Padding geral -->
+    <padding>
+        <Insets top="20" right="0" bottom="20" left="0"/>
+    </padding>
 
     <!-- Título -->
-    <Label text="Título:" layoutX="20" layoutY="60"/>
-    <TextField fx:id="txtTitulo" layoutX="120" layoutY="55" prefWidth="200"/>
+    <Label text="Gestão de Tarefas" styleClass="dashboard-title"/>
 
-    <!-- Descrição -->
-    <Label text="Descrição:" layoutX="20" layoutY="95"/>
-    <TextArea fx:id="txtDescricao" layoutX="120" layoutY="90" prefWidth="200" prefHeight="60"/>
+    <!-- Card principal -->
+    <StackPane styleClass="user-card" VBox.vgrow="ALWAYS" maxWidth="950">
+        <VBox spacing="15" alignment="center">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
 
-    <!-- Projeto -->
-    <Label text="Projeto:" layoutX="350" layoutY="60"/>
-    <ComboBox fx:id="cbProjeto" layoutX="420" layoutY="55" prefWidth="200"/>
+            <!-- Grid de campos -->
+            <GridPane hgap="20" vgap="10" alignment="center">
+                <columnConstraints>
+                    <ColumnConstraints minWidth="120" prefWidth="180"/>
+                    <ColumnConstraints minWidth="200" prefWidth="280"/>
+                    <ColumnConstraints minWidth="120" prefWidth="180"/>
+                    <ColumnConstraints minWidth="200" prefWidth="280"/>
+                </columnConstraints>
 
-    <!-- Responsável -->
-    <Label text="Responsável:" layoutX="350" layoutY="95"/>
-    <ComboBox fx:id="cbResponsavel" layoutX="420" layoutY="90" prefWidth="200"/>
+                <!-- Linha 0 -->
+                <Label text="Título:" GridPane.rowIndex="0" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextField fx:id="txtTitulo" GridPane.rowIndex="0" GridPane.columnIndex="1" prefWidth="280"/>
 
-    <!-- Datas -->
-    <Label text="Data Início:" layoutX="20" layoutY="165"/>
-    <DatePicker fx:id="dpInicio" layoutX="120" layoutY="160"/>
+                <Label text="Projeto:" GridPane.rowIndex="0" GridPane.columnIndex="2" styleClass="field-label"/>
+                <ComboBox fx:id="cbProjeto" GridPane.rowIndex="0" GridPane.columnIndex="3" prefWidth="280"/>
 
-    <Label text="Data Término:" layoutX="20" layoutY="200"/>
-    <DatePicker fx:id="dpTermino" layoutX="120" layoutY="195"/>
+                <!-- Linha 1 -->
+                <Label text="Descrição:" GridPane.rowIndex="1" GridPane.columnIndex="0" styleClass="field-label"/>
+                <TextArea fx:id="txtDescricao" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                          GridPane.columnSpan="3" prefRowCount="3" styleClass="custom-hover"/>
 
-    <!-- Botão salvar -->
-    <Button text="Salvar" layoutX="420" layoutY="130" prefWidth="200" onAction="#salvarTarefa"/>
+                <!-- Linha 2: Data Início e Data Término -->
+                <Label text="Data Início:" GridPane.rowIndex="2" GridPane.columnIndex="0" styleClass="field-label"/>
+                <DatePicker fx:id="dpInicio" GridPane.rowIndex="2" GridPane.columnIndex="1" prefWidth="280"/>
 
-    <!-- TableView de tarefas -->
-    <TableView fx:id="tableTarefas" layoutX="20" layoutY="240" prefWidth="600" prefHeight="180">
-        <columns>
-            <TableColumn fx:id="colTitulo" text="Título" prefWidth="150"/>
-            <TableColumn fx:id="colProjeto" text="Projeto" prefWidth="120"/>
-            <TableColumn fx:id="colResponsavel" text="Responsável" prefWidth="120"/>
-            <TableColumn fx:id="colDataInicio" text="Data Início" prefWidth="100"/>
-            <TableColumn fx:id="colDataTermino" text="Data Término" prefWidth="120"/>
-            <TableColumn fx:id="colStatus" text="Status" prefWidth="100"/>
-        </columns>
-    </TableView>
+                <Label text="Data Término:" GridPane.rowIndex="2" GridPane.columnIndex="2" styleClass="field-label"/>
+                <DatePicker fx:id="dpTermino" GridPane.rowIndex="2" GridPane.columnIndex="3" prefWidth="280"/>
 
-</AnchorPane>
+                <!-- Linha 3: Responsável e Status centralizados -->
+                <HBox spacing="20" alignment="CENTER" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="4">
+                    <Label text="Responsável:" styleClass="field-label"/>
+                    <ComboBox fx:id="cbResponsavel" prefWidth="200"/>
+                    <Label text="Status:" styleClass="field-label"/>
+                    <ComboBox fx:id="cbStatus" prefWidth="150"/>
+                </HBox>
+            </GridPane>
+
+            <!-- Botões -->
+            <HBox spacing="15" alignment="center">
+                <Button text="Salvar" fx:id="btnSalvar" onAction="#salvarTarefa" styleClass="button" prefWidth="120"/>
+                <Button text="Limpar" fx:id="btnLimpar" onAction="#limparCampos" styleClass="button" prefWidth="120"/>
+            </HBox>
+
+            <!-- Tabela de Tarefas -->
+            <ScrollPane fitToWidth="true" fitToHeight="true" prefHeight="300" prefWidth="900"
+                        style="-fx-background-color:transparent; -fx-padding:0;">
+                <content>
+                    <TableView fx:id="tableTarefas" styleClass="table-view" prefHeight="280" prefWidth="900">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+                            <TableColumn fx:id="colTitulo" text="Título" prefWidth="200"/>
+                            <TableColumn fx:id="colDescricao" text="Descrição" prefWidth="400"/>
+                            <TableColumn fx:id="colAcao" text="Ações" prefWidth="180"/>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="120"/>
+                        </columns>
+                    </TableView>
+                </content>
+            </ScrollPane>
+
+            <!-- Espaço inferior -->
+            <Region prefHeight="20"/>
+        </VBox>
+    </StackPane>
+</VBox>

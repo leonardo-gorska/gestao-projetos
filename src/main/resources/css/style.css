@@ -1,0 +1,469 @@
+/* ===========================
+   ROOT E FUNDO GERAL
+=========================== */
+.root, .dashboard-root, .anchor-pane {
+    -fx-background-color: #f5f5f5; /* fundo claro */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333;
+}
+
+/* ===========================
+   TÍTULOS
+=========================== */
+.label, .dashboard-title {
+    -fx-text-fill: #222222;
+}
+
+.dashboard-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-alignment: CENTER;
+    -fx-padding: 0 0 20 0;
+}
+
+/* ===========================
+   CARDS LOGIN
+=========================== */
+.login-card {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 10;
+    -fx-background-radius: 10;
+    -fx-padding: 30;
+    -fx-spacing: 15;
+    -fx-effect: dropshadow(gaussian, rgba(200,200,200,0.4), 8,0,0,3);
+    -fx-alignment: CENTER;
+}
+
+.login-card:hover {
+    -fx-effect: innershadow(gaussian, rgba(0,0,0,0.2), 8,0,0,2);
+}
+
+.login-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+/* ===========================
+   CARDS DASHBOARD
+=========================== */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-padding: 20;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 8,0,0,3);
+    -fx-pref-width: 150;
+    -fx-pref-height: 150;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1.5;
+}
+
+.card:hover {
+    -fx-background-color: #4c6cff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10,0,0,5);
+}
+
+.card-icon {
+    -fx-font-size: 144px;
+}
+
+.card-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #222222;
+    -fx-font-weight: bold;
+}
+
+/* ===========================
+   CARDS USUÁRIO
+=========================== */
+.user-card {
+    -fx-background-color: #ffffff;
+    -fx-padding: 20;
+    -fx-spacing: 10;
+    -fx-border-radius: 12;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10,0,0,4);
+}
+
+.user-card .label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.user-card .button {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-transition: all 0.2s ease-in-out;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4,0,0,2);
+}
+
+.user-card .button:hover {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00c6ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 6,0,0,3);
+}
+
+.user-card .text-field, .user-card .combo-box {
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 4 6 4 6;
+}
+
+/* ===========================
+   TEXTFIELDS E COMBOBOX
+=========================== */
+.text-field, .password-field, .combo-box {
+    -fx-background-color: white;
+    -fx-text-fill: #222222;
+    -fx-prompt-text-fill: #888888;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1.5;
+    -fx-padding: 4 8 4 8; /* subiu o texto um pouquinho */
+    -fx-font-size: 14px;
+    -fx-min-height: 36px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.0), 0,0,0,0);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.text-field:focused, .password-field:focused, .combo-box:focused {
+    -fx-border-color: #5a7aff;
+}
+
+.text-field:hover, .password-field:hover, .combo-box:hover {
+    -fx-effect: dropshadow(gaussian, rgba(76,108,255,0.4), 8,0,0,2);
+}
+
+/* ===========================
+   CHECKCOMBOBOX (EQUIPES)
+=========================== */
+.check-combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 0 6 0 6; /* padding horizontal mínimo */
+    -fx-font-size: 14px;
+    -fx-text-fill: #222222;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.0), 0,0,0,0);
+    -fx-transition: all 0.3s ease-in-out;
+    -fx-min-height: 36px; /* igual aos TextFields/ComboBoxes */
+}
+
+.check-combo-box:hover {
+    -fx-effect: dropshadow(gaussian, rgba(76,108,255,0.4), 8,0,0,2);
+    -fx-border-color: #5a7aff;
+}
+
+.check-combo-box .arrow-button {
+    -fx-background-color: white;
+    -fx-border-color: transparent;
+}
+
+.check-combo-box .list-view {
+    -fx-background-color: white;
+    -fx-padding: 0;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1.5;
+}
+
+.check-combo-box .list-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #222222;
+    -fx-padding: 4 6 4 6;
+}
+
+.check-combo-box .list-cell:hover {
+    -fx-background-color: rgba(76,108,255,0.2);
+}
+
+/* ===========================
+   HOVER CUSTOM PARA TEXTAREA E LISTVIEW
+=========================== */
+.custom-hover {
+    -fx-background-color: white;
+    -fx-border-color: #4c6cff;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 5 6 5 6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.0), 0,0,0,0);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.custom-hover:hover {
+    -fx-effect: dropshadow(gaussian, rgba(76,108,255,0.4), 8,0,0,2);
+    -fx-border-color: #5a7aff;
+}
+
+/* ===========================
+   LABELS DE CAMPOS
+=========================== */
+.field-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 0 0 4 0;
+}
+
+/* ===========================
+   BOTÕES
+=========================== */
+.button {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-padding: 8 15 8 15;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 4,0,0,2);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00c6ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 6,0,0,3);
+}
+
+.button:pressed {
+    -fx-background-color: #3c5cff;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3,0,0,2);
+}
+
+/* ===========================
+   TABELA DE USUÁRIOS
+=========================== */
+.table-view {
+    -fx-background-color: #ffffff;
+    -fx-table-cell-border-color: #e0e0e0;
+    -fx-font-size: 14px;
+    -fx-text-fill: #222222;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-cursor: hand;
+}
+
+.table-view:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8,0,0,0);
+}
+
+.table-view .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 3 5 3 5;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f0f0f0;
+}
+
+.table-view .column-header, .table-view .column-header .label {
+    -fx-text-fill: #222222;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.table-view .table-row-cell:odd { -fx-background-color: #fafafa; }
+.table-view .table-row-cell:even { -fx-background-color: #f0f0f0; }
+.table-view .table-row-cell:selected { -fx-background-color: #4c6cff; -fx-text-fill: white; }
+
+.table-view .button {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 4 10 4 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3,0,0,1);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.table-view .button:hover {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00c6ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5,0,0,2);
+}
+
+/* ===========================
+   DATEPICKER PADRÃO E POPUP
+=========================== */
+.date-picker .text-field {
+    -fx-background-color: white;
+    -fx-border-color: #4c6cff;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 5 8 5 8;
+}
+
+.date-picker .text-field:focused {
+    -fx-border-color: #5a7aff;
+}
+
+.date-picker .date-picker-popup,
+.date-picker .popup-content {
+    -fx-background-color: white;
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(76,108,255,0.2), 8,0,0,2);
+}
+
+.date-picker .date-picker-popup .content,
+.date-picker .popup-content .content {
+    -fx-background-color: white;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.date-picker .date-picker-popup .day-cell,
+.date-picker .popup-content .day-cell {
+    -fx-background-color: white;
+    -fx-text-fill: #222222;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4;
+}
+
+.date-picker .date-picker-popup .day-cell:hover,
+.date-picker .popup-content .day-cell:hover {
+    -fx-background-color: rgba(76,108,255,0.2);
+    -fx-text-fill: #222222;
+}
+
+.date-picker .date-picker-popup .day-cell:selected,
+.date-picker .popup-content .day-cell:selected {
+    -fx-background-color: #4c6cff;
+    -fx-text-fill: white;
+}
+
+.date-picker .date-picker-popup .day-of-week,
+.date-picker .popup-content .day-of-week {
+    -fx-font-weight: bold;
+    -fx-text-fill: #222222;
+}
+
+.date-picker .date-picker-popup .today,
+.date-picker .popup-content .today {
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1;
+    -fx-border-radius: 4;
+}
+
+/* ===========================
+   CAMPOS EQUIPES (TextArea e ListView)
+=========================== */
+.text-area, .list-view {
+    -fx-background-color: white;
+    -fx-border-color: #4c6cff;
+    -fx-border-width: 1.5;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 8 6 8;
+    -fx-font-size: 14px;
+    -fx-text-fill: #222222;
+    -fx-cursor: text;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.0), 0,0,0,0);
+    -fx-transition: all 0.3s ease-in-out;
+}
+
+.text-area:hover, .list-view:hover {
+    -fx-effect: dropshadow(gaussian, rgba(76,108,255,0.3), 8,0,0,2);
+    -fx-border-color: #5a7aff;
+}
+
+/* ===========================
+   BOTÕES PRINCIPAIS (Salvar, Limpar, Adicionar, Remover)
+=========================== */
+.button.primary {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+.button.primary:hover {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00c6ff);
+}
+
+.button.danger {
+    -fx-background-color: linear-gradient(to right, #ff4c4c, #c70000);
+}
+
+.button.danger:hover {
+    -fx-background-color: linear-gradient(to right, #c70000, #ff4c4c);
+}
+
+.button.neutral {
+    -fx-background-color: linear-gradient(to right, #888888, #555555);
+}
+
+.button.neutral:hover {
+    -fx-background-color: linear-gradient(to right, #555555, #888888);
+}
+
+/* ===========================
+   TABLEVIEW EQUIPES
+=========================== */
+.table-view.equipe-table {
+    -fx-background-color: #ffffff;
+    -fx-table-cell-border-color: #e0e0e0;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-border-color: #ccc;
+    -fx-border-width: 1;
+    -fx-font-size: 14px;
+    -fx-text-fill: #222222;
+}
+
+.table-view.equipe-table .table-cell {
+    -fx-alignment: CENTER_LEFT;
+    -fx-padding: 4 6 4 6;
+}
+
+.table-view.equipe-table .table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+
+.table-view.equipe-table .table-row-cell:even {
+    -fx-background-color: #f0f0f0;
+}
+
+.table-view.equipe-table .table-row-cell:selected {
+    -fx-background-color: #4c6cff;
+    -fx-text-fill: white;
+}
+
+.table-view.equipe-table .button {
+    -fx-background-color: linear-gradient(to right, #00c6ff, #0072ff);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-padding: 4 10 4 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3,0,0,1);
+}
+
+.table-view.equipe-table .button:hover {
+    -fx-background-color: linear-gradient(to right, #0072ff, #00c6ff);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5,0,0,2);
+}
+
+/* ===========================
+   HOVER PARA LINHA COMPLETA COM ANDAMENTO
+=========================== */
+.table-view.equipe-table .table-row-cell:filled:hover {
+    -fx-background-color: rgba(76,108,255,0.1);
+}

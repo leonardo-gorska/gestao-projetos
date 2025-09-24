@@ -1,18 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.RelatoriosController"
-            prefWidth="600" prefHeight="400">
+<VBox fx:controller="br.com.gestaoprojetos.controller.RelatoriosController"
+      spacing="15" alignment="center" xmlns:fx="http://javafx.com/fxml"
+      styleClass="dashboard-root"
+      prefWidth="1000" prefHeight="650">
 
-    <Label text="Relatórios de Projetos" layoutX="20" layoutY="20" style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+    <!-- Padding geral -->
+    <padding>
+        <Insets top="20" right="0" bottom="20" left="0"/>
+    </padding>
 
-    <TableView fx:id="tableProjetos" layoutX="20" layoutY="60" prefWidth="550" prefHeight="300">
-        <columns>
-            <TableColumn fx:id="colNome" text="Projeto" prefWidth="200"/>
-            <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
-            <TableColumn fx:id="colRisco" text="Risco" prefWidth="200"/>
-        </columns>
-    </TableView>
-</AnchorPane>
+    <!-- Título -->
+    <Label text="Relatórios de Projetos" styleClass="dashboard-title"/>
+
+    <!-- Card principal -->
+    <StackPane styleClass="user-card" VBox.vgrow="ALWAYS" maxWidth="950">
+        <VBox spacing="15" alignment="center">
+            <padding>
+                <Insets top="20" right="30" bottom="20" left="30"/>
+            </padding>
+
+            <!-- Tabela de Relatórios -->
+            <TableView fx:id="tableProjetos" prefHeight="400" prefWidth="900"
+                       VBox.vgrow="ALWAYS" styleClass="table-view">
+                <columns>
+                    <TableColumn fx:id="colNome" text="Projeto" prefWidth="250"/>
+                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150"/>
+                    <TableColumn fx:id="colRisco" text="Risco" prefWidth="200"/>
+                    <TableColumn fx:id="colConclusao" text="Conclusão" prefWidth="150"/> <!-- NOVO -->
+                    <TableColumn fx:id="colDesempenho" text="Desempenho" prefWidth="250"/>
+                </columns>
+            </TableView>
+
+
+            <!-- Espaço inferior -->
+            <Region prefHeight="20"/>
+        </VBox>
+    </StackPane>
+</VBox>

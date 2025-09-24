@@ -1,16 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import de.jensd.fx.glyphs.fontawesome.*?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="br.com.gestaoprojetos.controller.DashboardController"
-            prefWidth="600" prefHeight="400">
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="br.com.gestaoprojetos.controller.DashboardController"
+            prefWidth="700" prefHeight="450"
+            styleClass="dashboard-root">
 
-    <Label fx:id="lblUsuario" layoutX="20" layoutY="20" text="Bem-vindo, Usuário"/>
+    <children>
+        <VBox spacing="20" alignment="TOP_CENTER" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
 
-    <Button fx:id="btnUsuarios" layoutX="50" layoutY="70" text="Usuários" onAction="#abrirUsuarios"/>
-    <Button fx:id="btnProjetos" layoutX="50" layoutY="120" text="Projetos" onAction="#abrirProjetos"/>
-    <Button fx:id="btnEquipes" layoutX="50" layoutY="170" text="Equipes" onAction="#abrirEquipes"/>
-    <Button fx:id="btnTarefas" layoutX="50" layoutY="220" text="Tarefas" onAction="#abrirTarefas"/>
-    <Button fx:id="btnRelatorios" layoutX="50" layoutY="270" text="Relatórios" onAction="#abrirRelatorios"/>
+            <!-- Título -->
+            <Label text="Painel de Gestão" styleClass="dashboard-title"/>
+
+            <!-- Grid de cards -->
+            <GridPane hgap="30" vgap="30" alignment="CENTER">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="33"/>
+                    <ColumnConstraints percentWidth="33"/>
+                </columnConstraints>
+
+                <!-- Linha 1 -->
+                <VBox styleClass="card" onMouseClicked="#abrirUsuarios" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <FontAwesomeIconView glyphName="USER" styleClass="card-icon"/>
+                    <Label text="Usuários" styleClass="card-label"/>
+                </VBox>
+
+                <VBox styleClass="card" onMouseClicked="#abrirEquipes" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <FontAwesomeIconView glyphName="USERS" styleClass="card-icon"/>
+                    <Label text="Equipes" styleClass="card-label"/>
+                </VBox>
+
+                <VBox styleClass="card" onMouseClicked="#abrirProjetos" alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2">
+                    <FontAwesomeIconView glyphName="FOLDER" styleClass="card-icon"/>
+                    <Label text="Projetos" styleClass="card-label"/>
+                </VBox>
+
+                <!-- Linha 2 com espaçamento igual -->
+                <HBox spacing="40" alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.columnSpan="3">
+                    <VBox styleClass="card" onMouseClicked="#abrirTarefas" alignment="CENTER">
+                        <FontAwesomeIconView glyphName="CHECK_SQUARE" styleClass="card-icon"/>
+                        <Label text="Tarefas" styleClass="card-label"/>
+                    </VBox>
+
+                    <VBox styleClass="card" onMouseClicked="#abrirRelatorios" alignment="CENTER">
+                        <FontAwesomeIconView glyphName="BAR_CHART" styleClass="card-icon"/>
+                        <Label text="Relatórios" styleClass="card-label"/>
+                    </VBox>
+                </HBox>
+
+            </GridPane>
+        </VBox>
+
+        <!-- Botão de Logout no canto inferior direito -->
+        <Button fx:id="btnLogout"
+                text="Sair"
+                styleClass="danger"
+                AnchorPane.bottomAnchor="10"
+                AnchorPane.rightAnchor="10"
+                prefWidth="80"
+                prefHeight="30"/>
+    </children>
 </AnchorPane>

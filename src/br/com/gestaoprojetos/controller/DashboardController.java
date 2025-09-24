@@ -1,138 +1,184 @@
 package br.com.gestaoprojetos.controller;
 
+import br.com.gestaoprojetos.model.Projeto;
 import br.com.gestaoprojetos.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
-/**
- * Controlador do Dashboard principal do sistema.
- * Responsável por abrir as telas de CRUD, aplicar permissões por perfil e gerenciar o logout.
- */
+import java.io.IOException;
+
 public class DashboardController {
 
-    // Label de boas-vindas
-    @FXML private Label lblBoasVindas;
-
-    // Botões do dashboard
-    @FXML private Button btnUsuarios, btnProjetos, btnEquipes, btnTarefas, btnRelatorios;
-
-    // Usuário logado atualmente
     private Usuario usuarioLogado;
 
-    /**
-     * Define o usuário logado e aplica as permissões de acordo com seu perfil.
-     * @param u Usuário que fez login
-     */
-    public void setUsuarioLogado(Usuario u){
-        this.usuarioLogado = u;
-        lblBoasVindas.setText("Olá, " + u.getNome() + "!");
-        aplicarPermissoes();
+    @FXML
+    private Button btnLogout; // Botão de logout
+
+    public void setUsuario(Usuario usuario) {
+        this.usuarioLogado = usuario;
     }
 
-    /**
-     * Habilita ou desabilita os botões do dashboard de acordo com o perfil do usuário.
-     * Perfis: Administrador, Gerente, Colaborador
-     */
-    private void aplicarPermissoes(){
-        String perfil = usuarioLogado.getPerfil();
-
-        switch(perfil){
-            case "Administrador":
-                btnUsuarios.setVisible(true);
-                btnProjetos.setVisible(true);
-                btnEquipes.setVisible(true);
-                btnTarefas.setVisible(true);
-                btnRelatorios.setVisible(true);
-                break;
-
-            case "Gerente":
-                btnUsuarios.setVisible(false);
-                btnProjetos.setVisible(true);
-                btnEquipes.setVisible(true);
-                btnTarefas.setVisible(true);
-                btnRelatorios.setVisible(true);
-                break;
-
-            case "Colaborador":
-                btnUsuarios.setVisible(false);
-                btnProjetos.setVisible(false);
-                btnEquipes.setVisible(false);
-                btnTarefas.setVisible(true);
-                btnRelatorios.setVisible(false);
-                break;
-
-            default:
-                // Caso o perfil seja inválido, esconde todos os botões
-                btnUsuarios.setVisible(false);
-                btnProjetos.setVisible(false);
-                btnEquipes.setVisible(false);
-                btnTarefas.setVisible(false);
-                btnRelatorios.setVisible(false);
-                break;
+    @FXML
+    public void initialize() {
+        // Configura ação do botão de logout
+        if (btnLogout != null) {
+            btnLogout.setOnAction(e -> logout());
         }
     }
 
-    // ---------- Métodos para abrir telas de CRUD ----------
-
-    @FXML private void abrirUsuarios() { abrirTela("/fxml/Usuarios.fxml", "Gestão de Usuários"); }
-    @FXML private void abrirProjetos() { abrirTela("/fxml/Projetos.fxml", "Gestão de Projetos"); }
-    @FXML private void abrirEquipes() { abrirTela("/fxml/Equipes.fxml", "Gestão de Equipes"); }
-    @FXML private void abrirTarefas() { abrirTela("/fxml/Tarefas.fxml", "Gestão de Tarefas"); }
-
-    /**
-     * Abre a tela de relatórios
-     */
-    @FXML private void abrirRelatorios() {
-        abrirTela("/fxml/Relatorios.fxml", "Relatórios do Sistema");
+    @FXML
+    private void abrirUsuarios() {
+        if (!usuarioLogado.isAdmin()) {
+            mostrarErro("Permissão", "Você não tem permissão para acessar Usuários.");
+            return;
+        }
+        abrirTela("/fxml/Usuarios.fxml", "Usuários");
     }
 
-    /**
-     * Método genérico para abrir qualquer tela FXML.
-     * Garante que o carregamento do FXML seja feito de forma segura.
-     * @param fxml Caminho do arquivo FXML dentro de resources
-     * @param titulo Título da janela
-     */
-    private void abrirTela(String fxml, String titulo){
+    @FXML
+    private void abrirEquipes() {
+        if (!usuarioLogado.isAdmin() && !usuarioLogado.isGerente()) {
+            mostrarErro("Permissão", "Você não tem permissão para acessar Equipes.");
+            return;
+        }
+        abrirTela("/fxml/Equipes.fxml", "Equipes");
+    }
+
+    @FXML
+    private void abrirProjetos() {
+        if (!usuarioLogado.isAdmin() && !usuarioLogado.isGerente()) {
+            mostrarErro("Permissão", "Você não tem permissão para acessar Projetos.");
+            return;
+        }
+        abrirTela("/fxml/Projetos.fxml", "Projetos");
+    }
+
+    @FXML
+    private void abrirTarefas() {
+        Projeto projetoSelecionado = selecionarProjeto();
+        if (projetoSelecionado == null) return;
+
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Tarefas.fxml"));
             Parent root = loader.load();
+            TarefasController controller = loader.getController();
+
+            controller.setUsuario(usuarioLogado);
+            controller.setProjeto(projetoSelecionado);
 
             Stage stage = new Stage();
-            stage.setTitle(titulo);
-            stage.setScene(new Scene(root));
+            stage.setTitle("Tarefas - " + projetoSelecionado.getNome());
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            stage.setScene(scene);
             stage.show();
-        } catch(Exception e){
-            // Mostra no console caso o FXML não seja encontrado ou ocorra outro erro
+
+        } catch (IOException e) {
             e.printStackTrace();
+            mostrarErro("Erro ao abrir Tarefas", e.getMessage());
         }
     }
 
-    // ---------- Logout ----------
+    @FXML
+    private void abrirRelatorios() {
+        if (!usuarioLogado.isAdmin() && !usuarioLogado.isGerente()) {
+            mostrarErro("Permissão", "Você não tem permissão para acessar Relatórios.");
+            return;
+        }
+        abrirTela("/fxml/Relatorios.fxml", "Relatórios");
+    }
 
-    /**
-     * Fecha o dashboard atual e abre a tela de login.
-     */
-    @FXML private void logout() {
+    private void abrirTela(String fxmlPath, String titulo) {
         try {
-            // Fecha o stage atual
-            Stage stage = (Stage) lblBoasVindas.getScene().getWindow();
-            stage.close();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+            Parent root = loader.load();
+            Object controller = loader.getController();
+            try {
+                controller.getClass().getMethod("setUsuario", Usuario.class).invoke(controller, usuarioLogado);
+            } catch (NoSuchMethodException ignored) {}
+            Stage stage = new Stage();
+            stage.setTitle(titulo);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            mostrarErro("Erro ao abrir tela", e.getMessage());
+        }
+    }
 
-            // Carrega o login
+    private Projeto selecionarProjeto() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Projetos.fxml"));
+            Parent root = loader.load();
+            ProjetosController controller = loader.getController();
+            controller.setUsuario(usuarioLogado);
+
+            Stage stage = new Stage();
+            stage.setTitle("Selecione um projeto");
+            stage.initModality(Modality.APPLICATION_MODAL);
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            stage.setScene(scene);
+            stage.showAndWait();
+
+            Projeto projetoSelecionado = controller.getProjetoSelecionado();
+            if (projetoSelecionado == null) {
+                mostrarInfo("Nenhum projeto selecionado.");
+            }
+            return projetoSelecionado;
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarErro("Erro ao selecionar projeto", e.getMessage());
+            return null;
+        }
+    }
+
+    // ===========================
+    // NOVO MÉTODO DE LOGOUT
+    // ===========================
+    private void logout() {
+        try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml"));
             Parent root = loader.load();
 
-            Stage loginStage = new Stage();
-            loginStage.setTitle("Login");
-            loginStage.setScene(new Scene(root));
-            loginStage.show();
-        } catch(Exception e){
+            Stage stage = new Stage();
+            stage.setTitle("Login");
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
+            stage.setScene(scene);
+            stage.show();
+
+            // Fecha a janela atual (Dashboard)
+            btnLogout.getScene().getWindow().hide();
+
+        } catch (IOException e) {
             e.printStackTrace();
+            mostrarErro("Erro ao fazer logout", e.getMessage());
         }
+    }
+
+    private void mostrarErro(String titulo, String msg) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
+    }
+
+    private void mostrarInfo(String msg) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Info");
+        alert.setHeaderText(null);
+        alert.setContentText(msg);
+        alert.showAndWait();
     }
 }
