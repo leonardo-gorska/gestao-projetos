@@ -16,7 +16,7 @@ public abstract class GenericDAO<T> {
             // Dados do Banco
             String url = "jdbc:mysql://localhost:3306/gestao_projetos";
             String user = "root";
-            String password = "1234";
+            String password = System.getenv("DB_PASSWORD") != null ? System.getenv("DB_PASSWORD") : "1234"; // Credencial de exemplo
             connection = DriverManager.getConnection(url, user, password);
         } catch (SQLException e) {
             e.printStackTrace();
