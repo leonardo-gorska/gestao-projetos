@@ -19,3 +19,7 @@ Thumbs.db
 
 # Environment
 .env
+
+# IDE
+.idea/
+*.iml
